@@ -5,49 +5,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    :root {
-      --bg: white;
-      --light-bg: #f2ebff;
-      --magenta: #f30b68;
+    body {
+      background-color: white;
     }
 
     @media (prefers-color-scheme:dark) {
-      :root {
-        --bg: #150e22;
-        --light-bg: #483074;
-      }
-    }
-
-    body {
-      background-color: var(--bg);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0;
-      padding: 0;
-      height: 100vh;
-    }
-
-    div {
-      width: 64%;
-      height: 0.8rem;
-      max-width: 36rem;
-      background-color: var(--magenta);
-      background-image: linear-gradient(to right, var(--light-bg) 50%, var(--magenta) 50%);
-      background-position: -100%;
-      background-size: 200%;
-      border-radius: 16rem;
-      display: inline;
-      animation: loading 1000ms cubic-bezier(0.1, 0, 0.2, 1);
-    }
-
-    @keyframes loading {
-      from {
-        background-position: 0;
-      }
-
-      to {
-        background-position: -100%;
+      body {
+        background-color: #150e22;
       }
     }
   </style>
@@ -55,12 +19,9 @@
 
 <body>
   <script>
-    window.setTimeout(
-      () => {
-        window.location.replace(
-          `mailto:${hex2a("6865794066736a2e78797a")}` // hex email address
-        )
-      }, 1000);
+    window.location.replace(
+      `mailto:${hex2a("6865794066736a2e78797a")}` // hex email address
+    )
 
     function hex2a(hexx) {
       var hex = hexx.toString(); //force conversion
