@@ -5,18 +5,9 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <style>
-    @font-face {
-      font-family: 'Recursive';
-      src: url("RecursiveSansCslSt-XBdItalic.woff2") format('woff2');
-      font-weight: 800;
-      font-style: italic;
-      font-display: optional;
-    }
-
     :root {
       --bg: white;
-      --light-bg: #cebaf5;
-      --fg: #150e22;
+      --light-bg: #f2ebff;
       --magenta: #f30b68;
     }
 
@@ -24,15 +15,11 @@
       :root {
         --bg: #150e22;
         --light-bg: #483074;
-        --fg: white;
       }
     }
 
     body {
-      font-family: 'Recursive', sans-serif;
-      font-display: optional;
       background-color: var(--bg);
-      color: var(--fg);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -42,24 +29,16 @@
     }
 
     div {
-      padding: 1rem;
-      text-align: center;
-    }
-
-    h1 {
+      width: 64%;
+      height: 0.8rem;
+      max-width: 36rem;
       background-color: var(--magenta);
       background-image: linear-gradient(to right, var(--light-bg) 50%, var(--magenta) 50%);
       background-position: -100%;
       background-size: 200%;
-      background-clip: text;
-      color: transparent;
+      border-radius: 16rem;
       display: inline;
-      text-align: center;
-      font-style: italic;
-      font-weight: 800;
-      font-size: 3rem;
       animation: loading 1000ms cubic-bezier(0.1, 0, 0.2, 1);
-      ;
     }
 
     @keyframes loading {
@@ -77,11 +56,11 @@
 <body>
   <script>
     window.setTimeout(
-      () =>
+      () => {
         window.location.replace(
-          `mailto:${hex2a("6865794066736a2e78797a" // hex email address
-          )}`)
-      , 1000);
+          `mailto:${hex2a("6865794066736a2e78797a")}` // hex email address
+        )
+      }, 1000);
 
     function hex2a(hexx) {
       var hex = hexx.toString(); //force conversion
@@ -92,9 +71,7 @@
       return str;
     }
   </script>
-  <div>
-    <h1>Creating an email to Finn...</h1>
-  </div>
+  <div></div>
 </body>
 
 </html>
