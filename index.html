@@ -4,18 +4,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta http-equiv="refresh" content="1; URL=mailto:hey@fsj.xyz" />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL@-15,700,1&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Recursive:slnt,wght,CASL@-15,800,1&display=swap');
 
     :root {
       --bg: white;
+      --light-bg: #cebaf5;
       --fg: #150e22;
+      --purple: #b67aff;
+      --magenta: #f30b68;
     }
 
     @media (prefers-color-scheme:dark) {
       :root {
         --bg: #150e22;
+        --light-bg: #483074;
         --fg: white;
       }
     }
@@ -32,18 +35,63 @@
       height: 100vh;
     }
 
+    div {
+      padding: 1rem;
+      text-align: center;
+    }
+
     h1 {
-      background: linear-gradient(2deg, #b67aff, #f30b68);
+      background-image: linear-gradient(to right, var(--light-bg) 50%, var(--magenta) 50%);
+      background-position: -100%;
+      background-size: 200%;
       background-clip: text;
       color: transparent;
+      transition: background-position 0.4s cubic-bezier(.11, .87, .7, 1.01);
+      display: inline;
+      text-align: center;
+      font-weight: 800;
+      font-size: 3rem;
+      animation: loading 1s;
+    }
+
+    @keyframes loading {
+      from {
+        background-position: 0;
+      }
+
+      to {
+        background-position: -100%;
+      }
     }
   </style>
 </head>
 
 <body>
+  <script>
+    window.setTimeout(
+      () =>
+        window.location.replace(
+          `mailto:${hex2a("6865794066736a2e78797a" // hex email address
+          )}`)
+      , 1000);
+
+    function hex2a(hexx) {
+      var hex = hexx.toString(); //force conversion
+      var str = "";
+      for (var i = 0; i < hex.length; i += 2) {
+        str += String.fromCharCode(parseInt(hex.substr(i, 2), 16));
+      }
+      return str;
+    }
+  </script>
   <div>
     <h1>Creating an email to Finn...</h1>
   </div>
+
+  <!-- <a class="fun-hover" href="#">Check out React For Beginners</a>
+  <div class="post"><a class="fun-hover" href="#">Are you a Sublime Text Power User?</a></div><br />
+  <div class="post"><a class="fun-hover" href="#">I love to learn!</a></div>
+  <div class="post"><a class="fun-hover" href="#">I <br>sure<br>do<br>love<br>Flexbox! </a></div> -->
 </body>
 
 </html>
